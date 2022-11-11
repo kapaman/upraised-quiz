@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Root = styled.div`
-  max-width: 400px;
+  max-width: 380px;
   height: 100%;
   margin: auto;
   border: 1px solid black;
