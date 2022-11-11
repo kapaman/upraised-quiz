@@ -7,6 +7,9 @@ export const Root = styled.div`
   border: 1px solid black;
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 export const GradientBackground = styled.div`
