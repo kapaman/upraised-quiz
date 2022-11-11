@@ -66,7 +66,7 @@ export default function Question() {
       timeTaken,
     });
     try {
-      await axios.post(`${process.env.VERCEL_URL}/api/${quizId}/questions`, {
+      await axios.post(`${process.env.VERCEL_URL}api/${quizId}/questions`, {
         questionNo,
         chosenAnswersForServer,
         timeTaken,
@@ -78,7 +78,7 @@ export default function Question() {
     if (questionNo == questions.length - 1) {
       //LAST QUESTION: SEND API REQUENT TO END QUIZ
       try {
-        await axios.post(`${process.env.VERCEL_URL}/api/${quizId}/endquiz`);
+        await axios.post(`${process.env.VERCEL_URL}api/${quizId}/endquiz`);
       } catch (err) {
         console.log(err.message);
       }

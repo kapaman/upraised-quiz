@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchId = async () => {
       try {
-        const res = await axios.get(`${process.env.VERCEL_URL}/api/quizid`);
+        const res = await axios.get(`${process.env.VERCEL_URL}api/quizid`);
         const qid = res.data.quizId;
         setQuizId(qid);
         setUserResponse([]);
@@ -35,7 +35,7 @@ export default function Home() {
   const handleStart = async () => {
     try {
       const res = await axios.get(
-        `${process.env.VERCEL_URL}/api/${quizId}/questions`
+        `${process.env.VERCEL_URL}api/${quizId}/questions`
       );
       const data = res.data;
       addQuestions(data);
