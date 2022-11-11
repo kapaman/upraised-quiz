@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Primary = styled.button`
-  background-color: #ff3b3f;
-  width: 80%;
+  background-color: ${({ disabled }) => (disabled ? "#FF7275" : "#ff3b3f")};
+  width: 92%;
   height: 50px;
   border-radius: 80px;
   position: absolute;
