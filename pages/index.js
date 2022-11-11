@@ -12,13 +12,23 @@ import {
 } from "../styles/home.styled";
 import Router from "next/router";
 
-export default function Home({ quizId }) {
-  const { questions, addQuestions } = useContext(QuizContext);
+export default function Home() {
+  const { addQuestions, quizId, setQuizId } = useContext(QuizContext);
 
   useEffect(() => {
-    if (questions != undefined && questions.length > 0)
-      Router.push("/question");
-  }, [questions]);
+    const fetchId = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/api/quizid`);
+        const qid = res.data.quizId;
+        setQuizId(qid);
+        console.log(`The QuizId for this round: ${qid}`);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchId();
+  }, [setQuizId]);
 
   const handleStart = async () => {
     try {
@@ -27,6 +37,7 @@ export default function Home({ quizId }) {
       );
       const data = res.data;
       addQuestions(data);
+      Router.push("/question");
     } catch (err) {
       console.log(err);
     }
