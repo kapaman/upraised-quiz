@@ -21,7 +21,7 @@ export const OptionsContainer = styled.div`
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin-top: 7rem;
-  overflow: scroll;
+  overflow: hidden;
   height: calc(100% - 5rem);
   padding-bottom: 5rem;
   position: relative;

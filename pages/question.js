@@ -121,14 +121,16 @@ export default function Question() {
       <OptionsContainer>
         <div
           style={{
-            overflow: "scrolL",
+            overflow: "hidden scrolL",
             display: "flex",
             flexDirection: "column",
             gap: "0.75rem",
             marginTop: "5rem",
           }}
         >
-          <p style={{ fontWeight: "bold" }}>{questions[questionNo].question}</p>
+          <p style={{ fontWeight: "bold", margin: "0" }}>
+            {questions[questionNo].question}
+          </p>
           {questions[questionNo].options.map((ques, index) => (
             <OptionRoot
               key={index}
