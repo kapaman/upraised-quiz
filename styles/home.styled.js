@@ -10,6 +10,7 @@ export const Root = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
 `;
 
 export const GradientBackground = styled.div`

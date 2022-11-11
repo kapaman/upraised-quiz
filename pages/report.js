@@ -2,6 +2,7 @@ import QuizContext from "../context/QuizProvider";
 import { useContext, useEffect, useState } from "react";
 import PrimaryButton from "../components/PrimaryButton";
 import GreenCheck from "../images/green-check.svg";
+import Confetti from "../images/confetti.svg";
 import Image from "next/image";
 import {
   OptionRoot,
@@ -40,6 +41,16 @@ export default function Question() {
   }
   return (
     <QuestionRoot>
+      <Image
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "auto",
+          top: "-6%",
+        }}
+        src={Confetti}
+        alt="confetti"
+      ></Image>
       <OptionsContainer>
         <div
           style={{

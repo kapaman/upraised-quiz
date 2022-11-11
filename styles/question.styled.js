@@ -6,6 +6,7 @@ export const OptionRoot = styled.div`
   height: 80px;
   cursor: pointer;
   display: flex;
+  flex: 0;
   align-items: center;
   border: ${({ check }) => (check ? "4px solid #44B77B" : "4px solid #f3f4fa")};
 `;
@@ -31,5 +32,6 @@ export const QuestionRoot = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
   height: 100%;
 `;

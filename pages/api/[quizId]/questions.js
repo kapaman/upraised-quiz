@@ -5,7 +5,7 @@ import { validate as uuidValidate } from "uuid";
 export default function handler(req, res) {
   const reqType = req.method;
   const { quizId } = req.query;
-  console.log(reqType);
+
   if (!uuidValidate(quizId)) {
     res.status(401).json({ error: "Please specify valid quizId" });
     return;

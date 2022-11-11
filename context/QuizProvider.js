@@ -7,14 +7,13 @@ export const QuizDataProvider = ({ children }) => {
   const [userResponse, setUserResponse] = useState([]);
   const [quizId, setQuizId] = useState(null);
   const addQuestions = (ques) => setQuestions(ques);
-  const addUserResponse = (resp) => setUserResponse(resp);
   return (
     <QuizContext.Provider
       value={{
         questions,
         addQuestions,
         userResponse,
-        addUserResponse,
+        setUserResponse,
         quizId,
         setQuizId,
       }}

@@ -1,6 +1,7 @@
 import QuizContext from "../context/QuizProvider";
 import { useContext, useEffect, useState } from "react";
 import PrimaryButton from "../components/PrimaryButton";
+import Confetti from "../images/confetti.svg";
 import GreenCheck from "../images/green-check.svg";
 import Image from "next/image";
 import {
@@ -19,7 +20,7 @@ const styles = {
 };
 
 export default function Question() {
-  const { questions, userResponse, addUserResponse, quizId } =
+  const { questions, userResponse, setUserResponse, quizId } =
     useContext(QuizContext);
   const [questionNo, setQuestionNo] = useState(0);
   const [startTime, setStartTime] = useState(null);
@@ -73,7 +74,7 @@ export default function Question() {
     } catch (err) {
       console.log(err.message);
     }
-    addUserResponse(newUserResponse);
+    setUserResponse(newUserResponse);
     if (questionNo == questions.length - 1) {
       //LAST QUESTION: SEND API REQUENT TO END QUIZ
       try {
@@ -99,6 +100,16 @@ export default function Question() {
   }
   return (
     <QuestionRoot>
+      <Image
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "auto",
+          top: "-6%",
+        }}
+        src={Confetti}
+        alt="confetti"
+      ></Image>
       <div
         style={{ position: "absolute", zIndex: "2", left: "50%", top: "7.5%" }}
       >
@@ -117,9 +128,7 @@ export default function Question() {
             marginTop: "5rem",
           }}
         >
-          <p>
-            {questions[questionNo].question} {questionNo}
-          </p>
+          <p style={{ fontWeight: "bold" }}>{questions[questionNo].question}</p>
           {questions[questionNo].options.map((ques, index) => (
             <OptionRoot
               key={index}

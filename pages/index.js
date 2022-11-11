@@ -13,7 +13,8 @@ import {
 import Router from "next/router";
 
 export default function Home() {
-  const { addQuestions, quizId, setQuizId } = useContext(QuizContext);
+  const { addQuestions, quizId, setQuizId, setUserResponse } =
+    useContext(QuizContext);
 
   useEffect(() => {
     const fetchId = async () => {
@@ -21,6 +22,7 @@ export default function Home() {
         const res = await axios.get(`http://localhost:3000/api/quizid`);
         const qid = res.data.quizId;
         setQuizId(qid);
+        setUserResponse([]);
         console.log(`The QuizId for this round: ${qid}`);
       } catch (err) {
         console.log(err);
@@ -28,7 +30,7 @@ export default function Home() {
     };
 
     fetchId();
-  }, [setQuizId]);
+  }, [setQuizId, setUserResponse]);
 
   const handleStart = async () => {
     try {
